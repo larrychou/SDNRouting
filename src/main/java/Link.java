@@ -6,6 +6,9 @@ public class Link {
     private int delay;
     private int cost;
 
+//
+
+///////////
     public Link(int id, int n_index1, int n_index2, int capacity, int delay, int cost) {
         this.id = id;
         this.n_index1 = n_index1;
