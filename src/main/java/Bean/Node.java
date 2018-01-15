@@ -1,3 +1,5 @@
+package Bean;
+
 public class Node {
     private int index;
     private String name;
@@ -5,7 +7,6 @@ public class Node {
     private int delay;
     private int cost;
 
-    @Override
     public String toString() {
         return "Node{" +
                 "index=" + index +

@@ -1,22 +1,26 @@
+package findKthShortPath;
+
+import Bean.Link;
+import Bean.Node;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Main {
+public class NodesAndLinks {
     public static Link[][] linkArr = new Link[100][100];
     public static ArrayList<Node> nodeList = new ArrayList<Node>();
-    public static void main(String[] args) {
-        String path = "C:/test.txt";
-        readFile(path);
-    }
+
+
+
     public static void readFile(String path){
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(path));
         } catch (FileNotFoundException e) {
-            System.out.println("路径错误！");
+            System.out.println("文件不存在！");
             e.printStackTrace();
         }
         String str ="";
@@ -26,7 +30,7 @@ public class Main {
         try {
             while((str=br.readLine())!=null){
                 if(!str.startsWith("#")){
-                    String[] strArr = str.split(" ");
+                    String[] strArr = str.split("\\s+");
                     if(strArr.length==2 && strArr[0].equals("t1")){
                         nodeNum=Integer.valueOf(strArr[1]);
                     }
@@ -46,13 +50,15 @@ public class Main {
                 }
             }
         } catch (IOException e) {
-            System.out.println("读取文件错误！！");
+            System.out.println("读取节点或链路信息异常");
             e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.out.println(str);
         }
         try {
             br.close();
         } catch (IOException e) {
-            System.out.println("文件关闭错误");
+            System.out.println("文件关闭异常");
             e.printStackTrace();
         }
     }
