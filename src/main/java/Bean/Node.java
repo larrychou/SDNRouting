@@ -1,4 +1,4 @@
-package SDNRouting;
+package Bean;
 
 public class Node {
     private int index;
